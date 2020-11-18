@@ -1,0 +1,26 @@
+<!Doctype html>
+  <html lang="fr">
+    <head>
+      <meta charset="UTF-8" />
+      <title> Base de connaissances sur la mycologie </title>
+    </head>
+    
+    <body>
+      <h2> Recherche </h2>
+      critere : <input type="input" id="critere" />
+      <button onclick="recherche()"> Va chercher </button>
+      <hr/>
+      <h2> Résultats </h2>
+    </body>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>      
+    <script>
+      function recherche() {
+          let critere = $("#critere").val();
+          console.log("Dans recherche() avec "+critere);
+          $.getJSON("http://localhost:5000/recherche/"+critere, function(reponses) {
+              console.dir(reponses);
+          });
+      }
+    </script>  
+  </html>
